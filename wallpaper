@@ -1,0 +1,12 @@
+#!/bin/bash
+
+AESTHETIC=`cat /home/nick/.config/aesthetic | tr '\n' '/'`
+WALLPAPER=`find ${AESTHETIC} -type f | shuf -n 1`
+diff_current=`diff ${WALLPAPER} ~/img/background.png`
+if [[ $diff_current = '' ]]; then
+	wallpaper
+	exit
+fi
+rm -f /home/nick/img/background.png
+ln -s ${WALLPAPER} /home/nick/img/background.png
+feh --bg-fill --no-fehbg ~/img/background.png

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+arg=$1
+if [ $1 = 'wind' ]; then
+  scrot --focused --border --format png
+elif [ $1 = 'scrn' ]; then
+  scrot --monitor 0 --format png
+elif [ $1 = 'sel' ]; then
+  scrot --select --freeze --format png
+fi
+
+mv ~/*.png ~/img/screenshots

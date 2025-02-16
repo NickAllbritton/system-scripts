@@ -1,0 +1,9 @@
+#!/bin/bash
+
+random=`cat ~/.config/random_background`
+
+if [[ $random = '-true' ]]; then
+	wallpaper
+fi
+
+feh --bg-fill --no-fehbg ~/img/background.png

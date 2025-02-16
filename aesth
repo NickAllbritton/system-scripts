@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# 1. This script takes an argument which replaces the directory
+# containing the background images for the 'aesthetic' group
+# that is currently selected.
+# 2. Then it updates the environment variable.
+# 3. Lastly, it runs wallpaper which selects a random wallpaper
+# from the selected directory.
+
+CURRENT=/home/nick/.config/aesthetic
+
+TOUCHGRASS=/home/nick/img/aesthetics/touchgrass
+CELESTIAL=/home/nick/img/aesthetics/celestial
+WATERS=/home/nick/img/aesthetics/waters
+SOLARPUNK=/home/nick/img/aesthetics/solarpunk
+HOMESTEAD=/home/nick/img/aesthetics/homestead
+FLOWERS=/home/nick/img/aesthetics/flowers
+ANARCHY=/home/nick/img/aesthetics/anarchy
+
+if [ $1 = 'touchgrass' ]; then
+	echo ${TOUCHGRASS} > ${CURRENT} 
+elif [ $1 = 'celestial' ]; then
+	echo ${CELESTIAL} > ${CURRENT}
+elif [ $1 = 'waters' ]; then
+	echo ${WATERS} > ${CURRENT}
+elif [ $1 = 'solarpunk' ]; then
+	echo ${SOLARPUNK} > ${CURRENT}
+elif [ $1 = 'homestead' ]; then
+	echo ${HOMESTEAD} > ${CURRENT}
+elif [ $1 = 'flowers' ]; then
+	echo ${FLOWERS} > ${CURRENT}
+elif [ $1 = 'anarchy' ]; then
+	echo ${ANARCHY} > ${CURRENT}
+fi
+
+AESTHETIC=`cat /home/nick/.config/aesthetic | tr '\n' '/'`
+
+wallpaper
